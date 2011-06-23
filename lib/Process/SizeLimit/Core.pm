@@ -287,6 +287,8 @@ sub _linux_getppid { return Linux::Pid::getppid() }
 
 __END__
 
+=encoding utf8
+
 =head1 NAME
 
 Process::SizeLimit::Core - Apache::SizeLimit::Core, repackaged
