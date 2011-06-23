@@ -49,7 +49,7 @@ use vars qw(
                 $START_TIME
                );
 
-$VERSION = '0.95';
+$VERSION = '0.9501';
 
 $REQUEST_COUNT          = 1;
 
@@ -159,6 +159,10 @@ BEGIN {
         *_platform_check_size   = \&_bsd_size_check;
         *_platform_getppid = \&_perl_getppid;
     }
+    elsif ($Config{'osname'} =~ /darwin/i) {
+        *_platform_check_size   = \&_darwin_size_check;
+        *_platform_getppid = \&_perl_getppid;
+    }
 #    elsif (IS_WIN32i && $mod_perl::VERSION < 1.99) {
 #        _load('Win32::API');
 #
@@ -216,6 +220,18 @@ sub _bsd_size_check {
     my $max_ixrss = int ( $results[3] / 1024 );
 
     return ($max_rss, $max_ixrss);
+}
+
+sub _darwin_size_check {
+    my ($size) = _bsd_size_check();
+    my ($shared) = (`top -e -l 1 -stats rshrd -pid $$ -s 0`)[-1];
+    $shared =~ s/^(\d+)M.*/$1 * 1024 * 1024/e
+        or
+    $shared =~ s/^(\d+)K.*/$1 * 1024/e
+        or
+    $shared =~ s/^(\d+)B.*/$1/;
+    no warnings 'numeric';
+    return ($size, int($shared));
 }
 
 sub _win32_size_check {
