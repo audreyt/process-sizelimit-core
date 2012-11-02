@@ -160,6 +160,8 @@ BEGIN {
         *_platform_getppid = \&_perl_getppid;
     }
     elsif ($Config{'osname'} =~ /darwin/i) {
+        _load('BSD::Resource');
+
         *_platform_check_size   = \&_darwin_size_check;
         *_platform_getppid = \&_perl_getppid;
     }
