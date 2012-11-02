@@ -22,7 +22,7 @@ Doug Steinwand and Perrin Harkins <perrin@elem.com>: added support for shared me
 
 Matt Phillips <mphillips@virage.com> and Mohamed Hendawi <mhendawi@virage.com>: Win32 support
 
-Dave Rolsky <autarch@urth.org>, maintenance and fixes outside of mod_perl tree (0.9+).
+Dave Rolsky <autarch@urth.org>, maintenance and fixes outside of mod\_perl tree (0.9+).
 
 # LICENSE
 
