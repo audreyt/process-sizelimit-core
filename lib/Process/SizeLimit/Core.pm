@@ -49,7 +49,7 @@ use vars qw(
                 $START_TIME
                );
 
-$VERSION = '0.9503';
+$VERSION = '0.9505';
 
 $REQUEST_COUNT          = 1;
 
@@ -163,8 +163,8 @@ BEGIN {
         _load('BSD::Resource');
         my $ver = qx[sw_vers -productVersion] || 0;
         chomp $ver;
-        $ver =~ s/^(\d+\.\d+)\.\d+$/$1/;
-        if ($ver - 10 >= 0.9) {
+        $ver =~ s/^10\.(\d+)\.\d+$/$1/;
+        if ($ver >= 9) {
             # OSX 10.9+ has no concept of rshrd in top
             *_platform_check_size   = \&_bsd_size_check;
         }
