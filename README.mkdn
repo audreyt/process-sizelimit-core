@@ -4,13 +4,13 @@ Process::SizeLimit::Core - Apache::SizeLimit::Core, repackaged
 
 # DESCRIPTION
 
-This module is simply a re-packaging of [Apache::SizeLimit::Core](http://search.cpan.org/perldoc?Apache::SizeLimit::Core)
-into its own distribution; please refer to [Apache::SizeLimit](http://search.cpan.org/perldoc?Apache::SizeLimit)
-and [Plack::Middleware::SizeLimit](http://search.cpan.org/perldoc?Plack::Middleware::SizeLimit) for sample usage.
+This module is simply a re-packaging of [Apache::SizeLimit::Core](https://metacpan.org/pod/Apache::SizeLimit::Core)
+into its own distribution; please refer to [Apache::SizeLimit](https://metacpan.org/pod/Apache::SizeLimit)
+and [Plack::Middleware::SizeLimit](https://metacpan.org/pod/Plack::Middleware::SizeLimit) for sample usage.
 
 # AUTHORS
 
-唐鳳 <cpan@audreyt.org>, repackaging this module for [Plack::Middleware::SizeLimit](http://search.cpan.org/perldoc?Plack::Middleware::SizeLimit).
+唐鳳 <cpan@audreyt.org>, repackaging this module for [Plack::Middleware::SizeLimit](https://metacpan.org/pod/Plack::Middleware::SizeLimit).
 
 Fred Moyer <fred@redhotpenguin.com>, maintainer of Apache::SizeLimit distribution.
 

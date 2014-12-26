@@ -4,6 +4,7 @@ use inc::Module::Package 'Au:dry 1';
 
 perl_version '5.005';
 license 'apache2';
+author 'Audrey Tang <cpan@audreyt.org>';
 
 my $osname = $Config{osname};
 if ( $osname eq 'linux' ) {
