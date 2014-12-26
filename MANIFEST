@@ -8,6 +8,7 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/Package.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
+inc/Module/Package.pm
 inc/Pod/Markdown.pm
 lib/Process/SizeLimit/Core.pm
 Makefile.PL
