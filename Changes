@@ -1,3 +1,9 @@
+[Changes for 0.9506 - Mon Jul 27 23:07:16 CST 2015]
+
+* Allow use of Linux::Smaps::Tiny and prefer it over Linux::Smaps.
+
+  Contributed by: Tim Bunce
+
 [Changes for 0.9505 - Tue Jan 28 17:34:25 CST 2014]
 
 * Fix warnings in version detection on Mac OS X 10.10+.

@@ -14,6 +14,7 @@ cmp_ok $share,    '>=', 0, "share > 0 ($share)";
 cmp_ok $unshared, '>',  0, "unshared > 0 ($unshared)";
 is $unshared, $size - $share, "unshared = size - share";
 
+no warnings qw(uninitialized);
 diag sprintf "USE_SMAPS=%s", do { no warnings qw(once); $Process::SizeLimit::Core::USE_SMAPS; };
 
 # more tests needed!
