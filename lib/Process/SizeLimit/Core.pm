@@ -143,7 +143,11 @@ BEGIN {
 
         *_platform_getppid = \&_linux_getppid;
 
-        if (eval { require Linux::Smaps } && Linux::Smaps->new($$)) {
+        if (eval { require Linux::Smaps::Tiny }) {
+            $USE_SMAPS = 1;
+            *_platform_check_size = \&_linux_smaps_tiny_size_check;
+        }
+        elsif (eval { require Linux::Smaps } && Linux::Smaps->new($$)) {
             $USE_SMAPS = 1;
             *_platform_check_size = \&_linux_smaps_size_check;
         }
@@ -191,6 +195,15 @@ sub _linux_smaps_size_check {
 
     my $s = Linux::Smaps->new($$)->all;
     return ($s->size, $s->shared_clean + $s->shared_dirty);
+}
+
+sub _linux_smaps_tiny_size_check {
+    my $class = shift;
+
+    return $class->_linux_size_check() unless $USE_SMAPS;
+
+    my $s = Linux::Smaps::Tiny::get_smaps_summary();
+    return ($s->{Size}, $s->{Shared_Clean} + $s->{Shared_Dirty});
 }
 
 sub _linux_size_check {
